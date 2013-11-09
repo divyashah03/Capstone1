@@ -1,0 +1,17 @@
+﻿@model MPAA.Models.ReportModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Report Generator</h2>
+
+@using(Html.BeginForm(null,null, FormMethod.Post))
+{
+    <label>Choose Country:</label>
+    @Html.ListBoxFor(model => model.selectedCountries, new MultiSelectList(Model.countryName))
+    <label>Choose Piracy Type:</label>
+    @Html.ListBoxFor(model => model.selectedPT, new MultiSelectList(Model.piracyTypes))
+    <input type="submit" name="Preview" value="Preview" />
+}
